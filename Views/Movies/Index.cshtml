@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <ul>
+            @foreach (var movies in Model)
+            {
+                <li>@movies.Name</li>
+            }
+        </ul>
+        <table>
+            @foreach(var movies in Model )
+            {
+                <tr>
+                    <td>@movies.Name</td>
+                    <td>@movies.Genre.Name</td>
+                </tr>
+            }
+        </table>
+    </div>
+</body>
+</html>

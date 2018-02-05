@@ -4,27 +4,28 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebApplication2.Models;
+using System.Data.Entity;
 using WebApplication2.ViewModels;
 
 namespace WebApplication2.Controllers
 {
     public class MoviesController : Controller
     {
-        // GET: Movies
-        public ActionResult NewRandom()
+
+        public ApplicationDbContext  context { get; set; }
+        public MoviesController()
         {
-            var movie = new Movies() { Name = "Silence of the lambs" };
-            var customers = new List<Customers>
-            {
-                new Customers {Name="Surya" },
-                new Customers {Name="Abhay" }
-            };
-            var viewModel = new RandomMovieViewModel()
-            {
-                movie = movie,
-            Customers=customers
-            };
-            return View(viewModel);
+            context = new ApplicationDbContext();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            context.Dispose();
+        }
+        // GET: Movies
+        public ActionResult Index()
+        {
+            var movies = context.Movies.Include(c => c.Genre).ToList();
+            return View(movies);
         }
     }
 }

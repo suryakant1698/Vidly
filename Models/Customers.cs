@@ -16,6 +16,8 @@ namespace WebApplication2.Models
         public bool IsSubscribedToNewsLetter { get; set; }
         public MembershipType membershiptype { get; set; }
         public byte MembershipTypeID { get; set; }
+        
+        public DateTime BirthDate { get; set; }
 
     }
 }

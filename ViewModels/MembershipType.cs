@@ -11,6 +11,7 @@ namespace WebApplication2.ViewModels
         public short SignupFee { get; set; }
         public byte Duration { get; set; }
         public byte DiscountRate { get; set; }
+        public string  Name { get; set; }
 
     }
 }

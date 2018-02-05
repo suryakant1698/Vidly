@@ -12,18 +12,18 @@
 </head>
 <body>
     <div>
+
         <ul>
            
             @foreach (var customer in Model)
             {
                                 
-          
-                     <li>@customer.Name</li>
-                    <a  href=/Customers/Details/@customer.ID  >
-                        View
-                        Movies
-                    </a>
-                <li>@customer.membershiptype.DiscountRate</li>
+          @Html.ActionLink((string)customer.Name , "Details" , "Customers",new {id=customer.ID},null )
+                     
+                    
+                                     <li>@customer.membershiptype.DiscountRate</li>
+                <li>@customer.membershiptype.Name</li>
+
             }
 
     </ul>
